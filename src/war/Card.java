@@ -8,8 +8,8 @@ package war;
  */
 public class Card {
     private boolean faceUp;
-    private Rank rank;
-    private Suit suit;
+    private final Rank rank;
+    private final Suit suit;
     /**
      * Create the card with the rank and suit.  The card is not face up to begin with.
      *
@@ -29,7 +29,7 @@ public class Card {
 
     /** Set the card to be face down */
     public void setFaceDown() {
-        this.faceUp = true;
+        this.faceUp = false;
     }
 
     /**
@@ -38,14 +38,7 @@ public class Card {
      * @return whether the card is faceUp or not.
      */
     public boolean isFaceUp() {
-        if(this.faceUp == true)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return this.faceUp;
     }
 
     /**
@@ -55,8 +48,7 @@ public class Card {
      * @return true if this card beats the other card, false otherwise
      */
     public boolean beats(Card other) {
-         
-        return false;
+        return this.rank.getValue() > other.rank.getValue();
     }
 
     /**
@@ -69,8 +61,12 @@ public class Card {
      */
     @Override
     public String toString() {
-        // TODO
-        return null;
+        if(isFaceUp()) {
+            return this.rank.toString() + this.suit.toString() + "(U)";
+        }
+        else {
+            return this.rank.toString() + this.suit.toString() + "(D)";
+        }
     }
 
     /**
@@ -81,7 +77,10 @@ public class Card {
      */
     @Override
     public boolean equals(Object other) {
-        // TODO
-        return false;
+        if (other instanceof Card card)
+        {
+            return this.rank.getValue() == card.rank.getValue();
+        }
+        else return false;
     }
 }

@@ -1,3 +1,4 @@
+
 package test;
 
 import org.junit.jupiter.api.*;
@@ -18,9 +19,12 @@ import static org.junit.jupiter.api.Assertions.*;
  *
  * @author RIT CS
  */
+
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class TestPile {
-    /** Used to test that expected System.out print's happen */
+    /**
+     * Used to test that expected System.out print's happen
+     */
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
     @BeforeAll
@@ -74,7 +78,7 @@ public class TestPile {
         assertTrue(p1.hasCard());
         assertEquals("Two pile: 5♢(D) K♧(D) ", p1.toString());
         assertEquals(Arrays.asList(new Card(Rank.FIVE, Suit.DIAMOND), new Card(Rank.KING, Suit.CLUB)),
-            p1.getCards());
+                p1.getCards());
 
         Card c1 = p1.drawCard(true);
         assertEquals("5♢(U)", c1.toString());
@@ -91,7 +95,7 @@ public class TestPile {
 
         Card c3 = p1.drawCard(false);
         assertEquals("Shuffling Two pile" + System.getProperty("line.separator") +
-                "Two pile: K♧(D) 5♢(D) " + System.getProperty("line.separator"),
+                        "Two pile: K♧(D) 5♢(D) " + System.getProperty("line.separator"),
                 outContent.toString());
         assertEquals("K♧(D)", c3.toString());
         assertEquals("Two pile: 5♢(D) ", p1.toString());
@@ -112,7 +116,7 @@ public class TestPile {
         assertTrue(p1.hasCard());
         assertEquals("Four pile: 5♢(D) K♧(D) 10♥(D) A♠(D) ", p1.toString());
         assertEquals(Arrays.asList(new Card(Rank.FIVE, Suit.DIAMOND), new Card(Rank.KING, Suit.CLUB),
-                new Card(Rank.TEN, Suit.HEART), new Card(Rank.ACE, Suit.SPADE)),
+                        new Card(Rank.TEN, Suit.HEART), new Card(Rank.ACE, Suit.SPADE)),
                 p1.getCards());
 
         Card c1 = p1.drawCard(true);
