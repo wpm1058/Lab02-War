@@ -59,12 +59,17 @@ public class Pile {
     public void clear()
     {
         //TODO
+        this.cards.clear();
     }
 
     @Override
     public String toString()
     {
-        //TODO
-        return null;
+        String toPile = "";
+        for (Card c : cards)
+        {
+            toPile += c + " ";
+        }
+        return(name + " pile: " + toPile);
     }
 }

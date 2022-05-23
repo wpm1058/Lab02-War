@@ -12,39 +12,43 @@ public class Player {
     public void addCard(Card card)
     {
         //TODO
+        this.pile.addCard(card)
     }
 
     public void addCards(Pile cards)
     {
         //TODO
+        for (Card c : cards) {
+            this.pile.addCard(c);
+        }
     }
 
     public boolean hasCard()
     {
         //TODO
-        return false;
+        return this.pile.hasCard();;
     }
 
     public Card drawCard()
     {
         //TODO
-        return null;
+        return this.pile.drawCard();
     }
 
     public void setWinner()
     {
-        //TODO
+        this.winner = false;
     }
 
     public boolean isWinner()
     {
         //TODO
-        return false;
+        return this.winner;
     }
     @Override
     public String toString()
     {
         //TODO
-        return null;
+        return this.pile.toString;
     }
 }
