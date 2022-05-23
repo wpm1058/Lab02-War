@@ -2,6 +2,7 @@ package war;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Collections;
 
 public class Pile {
     private final ArrayList<Card> cards;
@@ -17,32 +18,42 @@ public class Pile {
     public static void setSeed(long seed)
     {
         //TODO
+        rng.setSeed(seed);
     }
 
     public void shuffle()
     {
         //TODO
+        System.out.println("Shuffling " + this.name + " pile");
+        Collections.shuffle(cards,rng);
     }
 
     public void addCard(Card card)
     {
         //TODO
-    }
-
-    public ArrayList<Card> getCards() {
-        return cards;
+        this.cards.add(Card);
     }
 
     public Card drawCard(boolean faceUp)
     {
         //TODO
-        return null;
+        Card dCard = cards.remove(0);
+        if(faceUp)
+        {
+            dCard.setFaceUp;
+        }
+        else 
+        {
+            dCard.setFaceDown;
+        }
+
+        return dCard;
     }
 
     public boolean hasCard()
     {
         //TODO
-        return false;
+        return cards.isEmpty();
     }
 
     public void clear()
